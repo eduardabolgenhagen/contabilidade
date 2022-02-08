@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {  Router } from '@angular/router';
+import { UsuarioService } from '../../services/usuario.service';
 
 @Component({
   selector: 'app-inicio',
@@ -8,9 +9,12 @@ import {  Router } from '@angular/router';
 })
 export class InicioComponent implements OnInit {
 
-  constructor(private route: Router) { }
+  constructor(
+    private usuarioService: UsuarioService,
+    private route: Router) { }
 
   ngOnInit() {
+    this.usuarioService.buscarUsuarios()
   }
 
   logar(){

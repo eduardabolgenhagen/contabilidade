@@ -1,3 +1,5 @@
+import { from } from 'rxjs';
+import { UsuarioService } from '../services/usuario.service';
 import { LoginPaginaModule } from './login-pagina.module';
 
 describe('LoginPaginaModule', () => {
@@ -11,3 +13,5 @@ describe('LoginPaginaModule', () => {
     expect(loginPaginaModule).toBeTruthy();
   });
 });
+
+
