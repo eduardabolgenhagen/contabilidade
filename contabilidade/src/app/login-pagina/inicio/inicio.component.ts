@@ -15,6 +15,11 @@ export class InicioComponent implements OnInit {
 
   ngOnInit() {
     this.usuarioService.buscarUsuarios()
+    .then(resultado => {
+      console.log('RESULTADO' , resultado)
+    }).catch(erro => {
+      console.log('ERRO AO BUSCAR USUÁRIOS' , erro)
+    })
   }
 
   logar(){
