@@ -1,0 +1,27 @@
+main{
+    background-color: #dbead5;
+    height: 100vh;
+}
+
+.centralizacao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.botao{
+    padding: 20px;
+    width: 50vw;
+    height: 12vh;
+    border-radius: 1vh;
+    background-color: #36602c;
+    color: white;
+    border: none;
+}
+
+.botao:hover{
+    background-color: #47AF2F;
+    color: white;
+    transition: 1.6s;
+}
