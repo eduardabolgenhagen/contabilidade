@@ -1,9 +1,35 @@
 <main>
-  <input type="text" placeholder="Título">
-  <input type="text" placeholder="Valor">
-  <input type="date" placeholder="Data">
-  <input type="text" placeholder="Descrição">
-  <br>
-  <button>Cancelar</button>
-  <button>Cadastrar</button>
+  <!-- div para logo -->
+  <div class="centralizacao">
+    <img src="./assets/icone.png" alt="" width="150vw" height="150vh">
+  </div>
+  <form action="">
+    <!-- títulos das notas fiscais -->
+    <div class="centralizacao">
+      <span class="textos">Título da NF*</span>
+      <input type="text" placeholder="Título" class="input">
+    </div>
+    <!-- cadastro de valores -->
+    <div class="centralizacao">
+      <span class="textos">R$*</span>
+      <input type="text" placeholder="Valor" class="input">
+    </div>
+    <!-- inserção de data  -->
+    <div class="centralizacao">
+      <span class="textos">Data*</span>
+      <input type="date" placeholder="Data" class="input">
+    </div>
+    <!-- descrição da nota/opcional  -->
+    <div class="centralizacao">
+      <span class="textos">Descrição</span>
+      <input type="text" placeholder="Descrição" class="input">
+    </div>
+
+    <div class="centralizacao2">
+      <button class="botao" type="reset">Cancelar</button>
+      <button class="botao" (click)="cadastrarNotas()">Cadastrar</button>
+    </div>
+  </form>
+
+
 </main>

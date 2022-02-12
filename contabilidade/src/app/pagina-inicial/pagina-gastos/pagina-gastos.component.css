@@ -1,0 +1,50 @@
+main{
+    background-color: #dbead5;
+    height: 100vh;
+}
+
+.centralizacao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.textos{
+    font-size: larger;
+    padding: 1vh;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #36602c;
+}
+
+.input{
+    padding: 5px;
+    width: 20vw;
+    height: 3vh;
+    border-radius: 1vh ;
+    border: 2px solid #36602c;
+}
+
+.centralizacao2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    column-gap: 2vh;
+}
+
+.botao{
+    padding: 10px;
+    width: 10vw;
+    border-radius: 1vh;
+    background-color: #36602c;
+    color: white;
+    border: none;
+}
+
+.botao:hover{
+    background-color: #47AF2F;
+    color: white;
+    transition: 1.6s;
+}
