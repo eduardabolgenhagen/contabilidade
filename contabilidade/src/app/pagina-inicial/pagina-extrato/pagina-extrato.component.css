@@ -1,0 +1,34 @@
+main{
+    background-color: white;
+    height: 100vh;
+}
+
+.centralizacao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2vh 3vh 0 3vh;
+}
+
+.textos{
+    font-size: 3vh;
+    padding: 1vh;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+}
+
+.assinaturasGeral{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 15vh;
+}
+
+.assinaturas{
+    font-size: 1.5vh;
+    padding: 1vh;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+}

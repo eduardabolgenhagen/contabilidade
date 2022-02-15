@@ -26,4 +26,8 @@ export class InicioComponent implements OnInit {
     this.route.navigate(['pagina-inicial'])
   }
 
+  cadastroClick(){
+    this.route.navigate(['cadastro']);
+  }
+
 }
