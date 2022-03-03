@@ -9,6 +9,7 @@ import { PaginaEscolhasComponent } from './pagina-inicial/pagina-escolhas/pagina
 import { PaginaExtratoComponent } from './pagina-inicial/pagina-extrato/pagina-extrato.component';
 import { PaginaGastosComponent } from './pagina-inicial/pagina-gastos/pagina-gastos.component';
 import { CadastroComponent } from './login-pagina/cadastro/cadastro.component';
+import { PaginaInicialModule } from './pagina-inicial/pagina-inicial.module';
 
 const routes: Routes=[
   {
@@ -41,11 +42,8 @@ const routes: Routes=[
 @NgModule({
   declarations: [
     AppComponent,
-    InicioComponent,
-    PaginaEscolhasComponent,
     PaginaGastosComponent,
-    PaginaExtratoComponent,
-    CadastroComponent
+    PaginaExtratoComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
