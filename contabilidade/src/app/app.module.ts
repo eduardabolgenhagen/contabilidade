@@ -4,53 +4,82 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { InicioComponent } from './login-pagina/inicio/inicio.component';
-import { RouterModule , Routes} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { PaginaEscolhasComponent } from './pagina-inicial/pagina-escolhas/pagina-escolhas.component';
 import { PaginaExtratoComponent } from './pagina-inicial/pagina-extrato/pagina-extrato.component';
 import { PaginaGastosComponent } from './pagina-inicial/pagina-gastos/pagina-gastos.component';
 import { CadastroComponent } from './login-pagina/cadastro/cadastro.component';
-import { PaginaInicialModule } from './pagina-inicial/pagina-inicial.module';
+import { LoginPaginaModule } from './login-pagina/login-pagina.module';
+import {
+  SocialLoginModule,
+  AuthServiceConfig,
+  GoogleLoginProvider
+} from "angular-6-social-login-v2";
 
-const routes: Routes=[
+
+
+const routes: Routes = [
   {
-    path:'',
+    path: '',
     component: InicioComponent,
-    canActivate:[]
+    canActivate: []
   },
   {
-    path:'pagina-inicial',
+    path: 'pagina-inicial',
     component: PaginaEscolhasComponent,
-    canActivate:[]
+    canActivate: []
   },
   {
-    path:'cadastro',
+    path: 'cadastro',
     component: CadastroComponent,
-    canActivate:[]
+    canActivate: []
   },
   {
-    path:'gastos',
+    path: 'gastos',
     component: PaginaGastosComponent,
-    canActivate:[]
+    canActivate: []
   },
   {
-    path:'extrato',
+    path: 'extrato',
     component: PaginaExtratoComponent,
-    canActivate:[]
+    canActivate: []
   }
 ]
+
+export function getAuthServiceConfigs() {
+  let config = new AuthServiceConfig(
+    [
+      {
+        id: GoogleLoginProvider.PROVIDER_ID,
+        provider: new GoogleLoginProvider("214907937972-gf4q78bvlr2nhgur0bdlecchcrths7i8.apps.googleusercontent.com"),
+      }
+    ]
+  )
+  return config
+};
 
 @NgModule({
   declarations: [
     AppComponent,
     PaginaGastosComponent,
-    PaginaExtratoComponent
+    PaginaExtratoComponent,
+    PaginaEscolhasComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
     BrowserModule,
-    FormsModule
+    FormsModule,
+    LoginPaginaModule,
+    SocialLoginModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: AuthServiceConfig,
+      useFactory: getAuthServiceConfigs
+    }
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}
