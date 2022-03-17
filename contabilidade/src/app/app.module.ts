@@ -16,8 +16,6 @@ import {
   GoogleLoginProvider
 } from "angular-6-social-login-v2";
 
-
-
 const routes: Routes = [
   {
     path: '',
