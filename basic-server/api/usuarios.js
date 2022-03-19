@@ -1,4 +1,3 @@
-
 inserirRota('/buscarUsuario',
 function (dados, resposta) {
     console.log(dados);

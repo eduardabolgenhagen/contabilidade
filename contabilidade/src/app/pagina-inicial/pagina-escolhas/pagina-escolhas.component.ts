@@ -23,7 +23,7 @@ export class PaginaEscolhasComponent implements OnInit {
   }
 
   logout(){
-    this.route.navigate([""])
+    this.route.navigate([''])
   }
 
 

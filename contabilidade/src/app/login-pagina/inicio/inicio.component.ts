@@ -29,8 +29,18 @@ export class InicioComponent implements OnInit {
       })
   }
 
-  username = "Eduarda";
-  password = "123";
+  // username = "Eduarda";
+  // password = "123";
+
+
+  logar() {
+    this.route.navigate(['/pagina-incial/']);
+  }
+
+  cadastrar() {
+    this.route.navigate(['/cadastro/']);
+  }
+
 
   // logar() {
   //   // this.route.navigate(['pagina-inicial'])
