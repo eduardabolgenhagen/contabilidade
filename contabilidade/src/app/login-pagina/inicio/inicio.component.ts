@@ -29,26 +29,40 @@ export class InicioComponent implements OnInit {
       })
   }
 
-  logar() {
-    this.route.navigate(['pagina-inicial'])
-  }
+  username = "Eduarda";
+  password = "123";
 
-  cadastroClick() {
-    this.route.navigate(['cadastro']);
-  }
+  // logar() {
+  //   // this.route.navigate(['pagina-inicial'])
+  //   this.usuarioService.buscarUsuarios(this.username, this.password).then((dados: any) => {
+  //     if (dados.user) {
+  //       console.log(dados);
+  //       localStorage.setItem('USER', dados.username);
+  //       this.route.navigate(['/pagina-inicial']);
+  //     } else {
+  //       alert('Usuário e senha incorretos!');
+  //     }
+  //   }).catch(erro => {
+  //     console.log(erro);
+  //   });
+  // }
 
-  public socialSignIn(socialPlatform: string) {
-    let socialPlatformProvider;
-    socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
+  // cadastroClick() {
+  //   this.route.navigate(['cadastro']);
+  // }
 
-    this.socialAuthService.signIn(socialPlatformProvider).then(
-      (userData) => {
-        console.log(socialPlatform + " sign in data : ", userData);
-        this.logar()
+  // public socialSignIn(socialPlatform: string) {
+  //   let socialPlatformProvider;
+  //   socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
 
-      }
-    );
-  }
+  //   this.socialAuthService.signIn(socialPlatformProvider).then(
+  //     (userData) => {
+  //       console.log(socialPlatform + " sign in data : ", userData);
+  //       this.logar()
+
+  //     }
+  //   );
+  // }
 }
 
 
