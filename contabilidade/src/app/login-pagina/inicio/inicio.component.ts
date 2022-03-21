@@ -29,51 +29,45 @@ export class InicioComponent implements OnInit {
       })
   }
 
-  // username = "Eduarda";
-  // password = "123";
+  email = '';
+  senha = '';
 
 
   logar() {
-    this.route.navigate(['/pagina-incial/']);
+    this.usuarioService.login(this.email, this.senha)
+      .then((resultado: any) => {
+        if (resultado.user) {
+          console.log('certo');
+          this.route.navigate(['/pagina-inicial/']);
+        } else {
+          alert('Erro ao fazer login! Verifique usuario e senha')
+        }
+      }).catch(erro => {
+        console.log('Erro ao buscar usuarios', erro)
+      })
   }
+
+//   logar() {
+//     this.usuarioService.login(this.usuario, this.senha)
+//       .then(resultado: any) => {
+//       if (resultado.user) {
+//         console.log('certo');
+//         this.route.navigate(['/pagina-incial/']);
+//       } else {
+//         alert('LOGIN INVÁLIDO.')
+//       }
+//     }).catch (erro => {
+//       console.log('ERRO AO BUSCAR USUÁRIO.', erro);
+//     })
+//   }
 
   cadastrar() {
     this.route.navigate(['/cadastro/']);
   }
 
+// }
 
-  // logar() {
-  //   // this.route.navigate(['pagina-inicial'])
-  //   this.usuarioService.buscarUsuarios(this.username, this.password).then((dados: any) => {
-  //     if (dados.user) {
-  //       console.log(dados);
-  //       localStorage.setItem('USER', dados.username);
-  //       this.route.navigate(['/pagina-inicial']);
-  //     } else {
-  //       alert('Usuário e senha incorretos!');
-  //     }
-  //   }).catch(erro => {
-  //     console.log(erro);
-  //   });
-  // }
 
-  // cadastroClick() {
-  //   this.route.navigate(['cadastro']);
-  // }
-
-  // public socialSignIn(socialPlatform: string) {
-  //   let socialPlatformProvider;
-  //   socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
-
-  //   this.socialAuthService.signIn(socialPlatformProvider).then(
-  //     (userData) => {
-  //       console.log(socialPlatform + " sign in data : ", userData);
-  //       this.logar()
-
-  //     }
-  //   );
-  // }
-}
 
 
 
