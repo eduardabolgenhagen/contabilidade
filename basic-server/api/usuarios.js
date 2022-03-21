@@ -2,7 +2,7 @@ inserirRota('/buscarUsuario',
     function(dados, resposta) {
         console.log(dados);
 
-        database('SELECT * FROM EMPRESA')
+        database('SELECT * FROM LOGIN')
             .then(result => {
                 resposta({ list: result });
             }).catch(erro => {
@@ -14,7 +14,7 @@ inserirRota('/login',
     function(dados, resposta) {
         console.log(dados);
 
-        database(`SELECT * FROM EMPRESA WHERE NICKNAME = "${dados, nickname}"`)
+        database(`SELECT * FROM LOGIN WHERE EMAIL = "${dados.email}" AND SENHA = "${dados.senha}"`)
             .then(result => {
                 resposta({ list: result });
             }).catch(erro => {
@@ -35,7 +35,7 @@ inserirRota('/criarUsuario',
             return resposta({ erro: 'É necessário preencher o senha!' });
         }
 
-        database(`INSERT INTO EMPRESA (
+        database(`INSERT INTO LOGIN (
         EMAIL, SENHA) VALUES ("${dados.email}", "${dados.senha}")`)
             .then(result => {
                 console.log('Usuario inserido com sucesso!');

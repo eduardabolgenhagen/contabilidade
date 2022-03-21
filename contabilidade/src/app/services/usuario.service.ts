@@ -9,6 +9,8 @@ import { EmailValidator } from '@angular/forms';
 })
 export class UsuarioService {
 
+
+
   constructor() { }
 
   buscarUsuarios() {
@@ -24,25 +26,27 @@ export class UsuarioService {
         .catch(rejeitado);
     })
   }
+
+  login(email, senha) {
+    return new Promise((resolvido, rejeitado) => {
+      fetch('api/login',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            email: email,
+            senha: senha
+          })
+        }).then(resultado => resultado.json())
+        .then(resolvido)
+        .catch(rejeitado);
+    })
+  }
 }
 
-login(email, senha) {
-  return new Promise((resolvido, rejeitado) => {
-    fetch('api/login',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          email: email,
-          senha: senha
-        })
-      }).then(resultado => resultado.json())
-      .then(resolvido)
-      .catch(rejeitado);
-  })
-}
+
 
 // login(){
 //   return new Promise(resolvido, rejeitado) => {

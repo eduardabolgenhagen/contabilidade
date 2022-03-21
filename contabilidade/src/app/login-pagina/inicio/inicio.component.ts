@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UsuarioService } from '../../services/usuario.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 import {
   AuthService,
   GoogleLoginProvider,
@@ -29,46 +29,42 @@ export class InicioComponent implements OnInit {
       })
   }
 
-  email = '';
-  senha = '';
+email = '';
+senha = '';
 
 
-  logar() {
-    this.usuarioService.login(this.email, this.senha)
-      .then((resultado: any) => {
-        if (resultado.user) {
-          console.log('certo');
-          this.route.navigate(['/pagina-inicial/']);
-        } else {
-          alert('Erro ao fazer login! Verifique usuario e senha')
-        }
-      }).catch(erro => {
-        console.log('Erro ao buscar usuarios', erro)
-      })
+logar() {
+  this.usuarioService.login(this.email, this.senha)
+    .then((resultado: any) => {
+      if (resultado.user) {
+        console.log('certo');
+        this.route.navigate(['/pagina-inicial/']);
+      } else {
+        alert('Erro ao fazer login! Verifique usuario e senha')
+      }
+    }).catch(erro => {
+      console.log('Erro ao buscar usuarios', erro)
+    })
+}
+
+
+cadastrar() {
+  this.route.navigate(['/cadastro/']);
+}
+
+public socialSignIn(socialPlatform: string) {
+  let socialPlatformProvider;
+  if(socialPlatform == "google"){
+    socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
+}
+  
+  this.socialAuthService.signIn(socialPlatformProvider).then(
+  (userData) => {
+    console.log(socialPlatform + " sign in data : ", userData);
+
   }
+);
+}
 
-//   logar() {
-//     this.usuarioService.login(this.usuario, this.senha)
-//       .then(resultado: any) => {
-//       if (resultado.user) {
-//         console.log('certo');
-//         this.route.navigate(['/pagina-incial/']);
-//       } else {
-//         alert('LOGIN INVÁLIDO.')
-//       }
-//     }).catch (erro => {
-//       console.log('ERRO AO BUSCAR USUÁRIO.', erro);
-//     })
-//   }
-
-  cadastrar() {
-    this.route.navigate(['/cadastro/']);
-  }
-
-// }
-
-
-
-
-
+}
 
