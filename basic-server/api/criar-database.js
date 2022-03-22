@@ -25,7 +25,7 @@ database(`CREATE TABLE IF NOT EXISTS ENDERECO (
     console.log('TABELA COM ERRO!');
 });
 
-database(`CREATE TABLE IF NOT EXISTS LOGIN(
+database(`CREATE TABLE IF NOT EXISTS LOGIN( 
         EMAIL VARCHAR(100) NOT NULL PRIMARY KEY,
         SENHA VARCHAR(50) NOT NULL
         )`).then(result => {

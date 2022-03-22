@@ -3,10 +3,10 @@
         <img src="./assets/logoo.png" alt="" width="300vw" height="300vh">
     </div>
     <div class="centralizacao2">
-        <input type="text" placeholder="Usuário" class="input">
+        <input [(ngModel)]="email" type="text" placeholder="Usuário" class="input">
     </div>
     <div class="centralizacao2">
-        <input type="password" placeholder="Senha" class="input">
+        <input [(ngModel)]="senha" type="password" placeholder="Senha" class="input">
     </div>
     <div class="centralizacao3">
         <button (click)='logar()' class="botao">ENTRAR</button>

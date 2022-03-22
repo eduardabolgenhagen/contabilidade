@@ -36,8 +36,8 @@ export class UsuarioService {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            email: email,
-            senha: senha
+            email,
+            senha
           })
         }).then(resultado => resultado.json())
         .then(resolvido)
@@ -45,23 +45,3 @@ export class UsuarioService {
     })
   }
 }
-
-
-
-// login(){
-//   return new Promise(resolvido, rejeitado) => {
-//     fetch('api/login',
-//       {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'applicarion/json'
-//         },
-//         body: JSON.stringify({
-//           email: email,
-//           senha: senha
-//         }).
-//     }).then(resultado => resultado.json())
-//       .then(resolvido)
-//       .catch(rejeitado);
-//   }
-// }

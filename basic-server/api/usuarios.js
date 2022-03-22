@@ -14,7 +14,8 @@ inserirRota('/login',
     function(dados, resposta) {
         console.log(dados);
 
-        database(`SELECT * FROM LOGIN WHERE EMAIL = "${dados.email}" AND SENHA = "${dados.senha}"`)
+        database(`SELECT EMAIL FROM LOGIN 
+        WHERE LOGIN.EMAIL = "${dados.email}" AND LOGIN.SENHA = "${dados.senha}"`)
             .then(result => {
                 resposta({ list: result });
             }).catch(erro => {

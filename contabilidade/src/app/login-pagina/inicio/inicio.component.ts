@@ -29,18 +29,19 @@ export class InicioComponent implements OnInit {
       })
   }
 
-email = '';
-senha = '';
+email = ''
+senha = ''
 
 
 logar() {
   this.usuarioService.login(this.email, this.senha)
     .then((resultado: any) => {
-      if (resultado.user) {
-        console.log('certo');
+      if (resultado.email == this.email) {
+        console.log('passou');
         this.route.navigate(['/pagina-inicial/']);
       } else {
         alert('Erro ao fazer login! Verifique usuario e senha')
+        console.log(resultado)
       }
     }).catch(erro => {
       console.log('Erro ao buscar usuarios', erro)
