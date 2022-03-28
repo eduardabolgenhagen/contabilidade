@@ -14,8 +14,7 @@ import {
   SocialLoginModule,
   AuthServiceConfig,
   GoogleLoginProvider
-} from "angular-6-social-login-v2";
-import { ngModuleJitUrl } from '@angular/compiler';
+} from "angular-6-social-login-v2"
 
 const routes: Routes = [
   {

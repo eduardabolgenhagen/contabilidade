@@ -14,10 +14,12 @@ inserirRota('/login',
     function(dados, resposta) {
         console.log(dados);
 
-        database(`SELECT EMAIL FROM LOGIN 
+        database(`SELECT * FROM LOGIN 
         WHERE LOGIN.EMAIL = "${dados.email}" AND LOGIN.SENHA = "${dados.senha}"`)
             .then(result => {
-                resposta({ list: result });
+                let user = result[0];
+                delete user.SENHA;
+                resposta({...user });
             }).catch(erro => {
                 resposta({ erro: 'Erro ao buscar usuários!' });
             });

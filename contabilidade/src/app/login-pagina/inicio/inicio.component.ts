@@ -29,43 +29,43 @@ export class InicioComponent implements OnInit {
       })
   }
 
-email = ''
-senha = ''
+  email = ''
+  senha = ''
 
 
-logar() {
-  this.usuarioService.login(this.email, this.senha)
-    .then((resultado: any) => {
-      if (resultado.email == this.email) {
-        console.log('passou');
-        this.route.navigate(['/pagina-inicial/']);
-      } else {
-        alert('Erro ao fazer login! Verifique usuario e senha')
-        console.log(resultado)
-      }
-    }).catch(erro => {
-      console.log('Erro ao buscar usuarios', erro)
-    })
-}
-
-
-cadastrar() {
-  this.route.navigate(['/cadastro/']);
-}
-
-public socialSignIn(socialPlatform: string) {
-  let socialPlatformProvider;
-  if(socialPlatform == "google"){
-    socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
-}
-  
-  this.socialAuthService.signIn(socialPlatformProvider).then(
-  (userData) => {
-    console.log(socialPlatform + " sign in data : ", userData);
-
+  logar() {
+    this.usuarioService.login(this.email, this.senha)
+      .then((resultado: any) => {
+        if (resultado.EMAIL) {
+          console.log('passou');
+          this.route.navigate(['/pagina-inicial/']);
+        } else {
+          alert('Erro ao fazer login! Verifique usuario e senha')
+          console.log(resultado);
+        }
+      }).catch(erro => {
+        console.log('Erro ao buscar usuarios', erro);
+      })
   }
-);
-}
+
+
+  cadastrar() {
+    this.route.navigate(['/cadastro/']);
+  }
+
+  public socialSignIn(socialPlatform: string) {
+    let socialPlatformProvider;
+    if (socialPlatform == "google") {
+      socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
+    }
+
+    this.socialAuthService.signIn(socialPlatformProvider).then(
+      (userData) => {
+        console.log(socialPlatform + " sign in data : ", userData);
+        this.route.navigate(['/pagina-inicial']);
+      }
+    );
+  }
 
 }
 

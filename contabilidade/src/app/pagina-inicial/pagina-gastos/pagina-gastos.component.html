@@ -10,25 +10,25 @@
                 <span class="textos">TÍTULO DA NF *</span>
             </div>
             <div class="centralizacao">
-                <input type="text" placeholder="Título" class="input">
+                <input [(ngModel)]="titulo" type="text" placeholder="Título" class="input">
             </div>
             <!-- cadastro de valores -->
             <div class="centralizacao">
                 <span class="textos">VALOR R$ *</span>
             </div>
             <div class="centralizacao">
-                <input type="text" placeholder="Valor" class="input">
+                <input [(ngModel)]="valor" type="text" placeholder="Valor" class="input">
             </div>
             <!-- inserção de data  -->
             <div class="centralizacao">
                 <span class="textos">DATA *</span>
             </div>
             <div class="centralizacao">
-                <input type="date" placeholder="DATA *" class="input">
+                <input [(ngModel)]="data" type="date" placeholder="DATA *" class="input">
             </div>
             <div class="centralizacao2">
                 <button class="botao" type="reset">Limpar</button>
-                <button class="botao" (click)="cadastrarNotas()">Cadastrar</button>
+                <button class="botao" (click)="cadatrarGastos()">Cadastrar</button>
             </div>
         </form>
     </div>
