@@ -27,6 +27,7 @@ export class InicioComponent implements OnInit {
       }).catch(erro => {
         console.log('ERRO AO BUSCAR USUÁRIOS', erro)
       })
+      localStorage.removeItem('CNPJ');
   }
 
   email = ''
@@ -39,6 +40,7 @@ export class InicioComponent implements OnInit {
         if (resultado.EMAIL) {
           console.log('passou');
           this.route.navigate(['/pagina-inicial/']);
+          localStorage.setItem('CNPJ', resultado.empresaid);
         } else {
           alert('Erro ao fazer login! Verifique usuario e senha')
           console.log(resultado);
@@ -47,7 +49,6 @@ export class InicioComponent implements OnInit {
         console.log('Erro ao buscar usuarios', erro);
       })
   }
-
 
   cadastrar() {
     this.route.navigate(['/cadastro/']);

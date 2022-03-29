@@ -1,4 +1,4 @@
-inserirRota('criarGasto',
+inserirRota('/criarGasto',
     function(dados, resposta) {
         console.log(dados)
 
@@ -14,7 +14,11 @@ inserirRota('criarGasto',
             return resposta({ erro: 'É necessário preencher a data!' });
         }
 
-        database(`INSERT INTO TO GASTOS (TITULO, VALOR, DATA, EMPRESAID) VALUES ("${dados.titulo}", "${dados.valor}", "${dados.data}")`)
+        if (!dados.empresaid){
+            return resposta({ erro: 'É necessário preencher o id!' });
+        }
+
+        database(`INSERT INTO TO GASTOS (TITULO, VALOR, DATA, EMPRESAID) VALUES ("${dados.titulo}", "${dados.valor}", "${dados.data}", "${dados.empresaid})`)
             .then(result => {
                 console.log('NF inserido com sucesso!');
                 resposta({ message: 'NF inserido com sucesso!' });

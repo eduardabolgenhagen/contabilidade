@@ -9,19 +9,30 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 })
 export class PaginaGastosComponent implements OnInit {
 
-  constructor( private route: Router,
-    private usuarioService : UsuarioService) { }
+  constructor(private route: Router,
+    private usuarioService: UsuarioService) { }
 
   ngOnInit() {
   }
 
   titulo = '';
-  data = '';
   valor = '';
-
-  cadatrarGastos(){
-    // this.usuarioService.gastos(this.titulo, this.)
-    console.log('foi');
-  }
+  data = '';
+  empresaid = localStorage.getItem('CNPJ');
   
+
+  cadatrarGastos() {
+    if (this.titulo != "" && this.valor != "" && this.data != "") {
+
+      this.usuarioService.criarGasto(this.titulo, this.valor, this.data, this.empresaid)
+        .then((resultado: any) => {
+          alert('Cadastrado com sucesso.')
+          this.route.navigate(['/pagina-inicial/']);
+        }).catch(erro => {
+          console.log('Erro ao buscar usuarios', erro);
+        })
+    } else{
+      alert('É necessário preencher todas as informações!')
+    }
+  }
 }

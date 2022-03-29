@@ -44,4 +44,22 @@ export class UsuarioService {
         .catch(rejeitado);
     })
   }
+
+  criarGasto(titulo, valor, data, empresaid) {
+    return new Promise((resolvido, rejeitado) => {
+      fetch('api/criarGasto',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            titulo: titulo, valor: valor, data: data, empresaid: empresaid
+          })
+        }).then(resultado => resultado.json())
+        .then(resolvido)
+        .catch(rejeitado);
+    })
+  }
 }
+
