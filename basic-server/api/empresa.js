@@ -14,7 +14,8 @@ inserirRota('/criarEmpresa',
             return resposta({ erro: 'É necessário preencher o telefone!' });
         }
 
-        database(`INSERT INTO TO EMPRESA (CNPJ, RAZAO_SOCIAL, TELEFONE) VALUES ("${dados.cnpj}", "${dados.razao}", "${dados.telefone}", "${dados.empresaid}" `)
+        database(`INSERT INTO TO EMPRESA (CNPJ, RAZAO_SOCIAL, TELEFONE) VALUES ("${dados.cnpj}", 
+        "${dados.razao}", "${dados.telefone}" `)
             .then(result => {
                 console.log('Empresa inserida com sucesso!');
                 resposta({ message: 'Empresa inserido com sucesso!' });

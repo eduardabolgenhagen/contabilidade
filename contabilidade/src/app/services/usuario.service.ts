@@ -61,5 +61,23 @@ export class UsuarioService {
         .catch(rejeitado);
     })
   }
+
+  criarEmpresa(cnpj, razao, telefone) {
+    return new Promise((resolvido, rejeitado) => {
+      fetch('api/criarGasto',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            cpnj: cnpj, razao: razao, telefone: telefone
+          })
+        }).then(resultado => resultado.json())
+        .then(resolvido)
+        .catch(rejeitado);
+    })
+  }
+
 }
 

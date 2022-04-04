@@ -22,8 +22,7 @@ export class PaginaGastosComponent implements OnInit {
   
 
   cadatrarGastos() {
-    if (this.titulo != "" && this.valor != "" && this.data != "") {
-
+    if (this.titulo != '' && this.valor != '' && this.data != '') {
       this.usuarioService.criarGasto(this.titulo, this.valor, this.data, this.empresaid)
         .then((resultado: any) => {
           alert('Cadastrado com sucesso.')
