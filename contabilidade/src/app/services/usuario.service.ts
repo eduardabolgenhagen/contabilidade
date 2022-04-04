@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { EmailValidator } from '@angular/forms';
+import { jsonpFactory } from '@angular/http/src/http_module';
 // import { LoginProviderClass } from 'angular-6-social-login-v2';
 // import { promise } from 'protractor';
 // import { logWarnings } from 'protractor/built/driverProviders';
@@ -64,7 +65,7 @@ export class UsuarioService {
 
   criarEmpresa(cnpj, razao, telefone) {
     return new Promise((resolvido, rejeitado) => {
-      fetch('api/criarGasto',
+      fetch('api/criarEmpresa',
         {
           method: 'POST',
           headers: {
@@ -74,6 +75,40 @@ export class UsuarioService {
             cpnj: cnpj, razao: razao, telefone: telefone
           })
         }).then(resultado => resultado.json())
+        .then(resolvido)
+        .catch(rejeitado);
+    })
+  }
+
+  criarUsuario(nome, email, senha, empresaid){
+    return new Promise((resolvido, rejeitado) => {
+      fetch('api/criarUsuario',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          nome : nome,
+          email : email,
+          senha : senha,
+          empresaid: empresaid
+        })
+      }).then(resultado => resultado.json())
+      .then(resolvido)
+      .catch(rejeitado);
+    })
+  }
+
+  buscarEmpresas() {
+    return new Promise((resolvido, rejeitado) => {
+
+      fetch('/api/buscarEmpresa', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(resultado => resultado.json())
         .then(resolvido)
         .catch(rejeitado);
     })

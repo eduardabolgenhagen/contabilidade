@@ -30,6 +30,10 @@ inserirRota('/criarUsuario',
 
         console.log(dados);
 
+        if(!dados.nome){
+            return resposta({erro: 'É necessário preencher o nome!'})
+        }
+
         if (!dados.email) {
             return resposta({ erro: 'É necessário preencher o email!' });
         }
@@ -39,7 +43,7 @@ inserirRota('/criarUsuario',
         }
 
         database(`INSERT INTO LOGIN (
-        EMAIL, SENHA) VALUES ("${dados.email}", "${dados.senha}")`)
+        EMAIL, SENHA) VALUES ("${dados.nome}", "${dados.email}", "${dados.senha}")`)
             .then(result => {
                 console.log('Usuario inserido com sucesso!');
                 resposta({ message: 'Usuario inserido com sucesso!' });

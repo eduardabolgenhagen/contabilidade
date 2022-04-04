@@ -18,6 +18,10 @@ export class CadastroComponent implements OnInit {
   cnpj = '';
   razao = '';
   telefone = '';
+  nome = '';
+  email = '';
+  senha = '';
+  empresaid = localStorage.getItem('CNPJ');
 
   cadatrarEmpresa() {
     if (this.cnpj != '' && this.razao != '' && this.telefone != '') {
@@ -33,6 +37,21 @@ export class CadastroComponent implements OnInit {
       alert('É necessário preencher todas as informações!')
     }
   }
+
+  cadastrarUsuario() {
+    if (this.nome != '' && this.email != '' && this.senha != ''){
+      this.usuarioService.criarUsuario(this.nome, this.email, this.senha, this.empresaid)
+      .then((resultado: any) => {
+        alert('Cadastrado com sucesso.')
+        console.log(this.nome, this.empresaid)
+      }).catch(erro => {
+        console.log('Erro ao criar usuário.', erro)
+      })
+    } else {
+      alert('É necessário preencher todos os campos!')
+    }
+  }
+
 }
 
 
