@@ -27,6 +27,7 @@ export class PaginaGastosComponent implements OnInit {
       this.usuarioService.criarGasto(this.titulo, this.valor, this.data, this.empresaid)
         .then((resultado: any) => {
           alert('Cadastrado com sucesso.')
+          console.log(this.titulo, this.valor, this.data)
           this.route.navigate(['/pagina-inicial/']);
         }).catch(erro => {
           console.log('Erro ao buscar usuarios', erro);

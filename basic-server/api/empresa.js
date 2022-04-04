@@ -1,29 +1,25 @@
-// inserirRota('/criarGasto',
-//     function(dados, resposta) {
-//         console.log(dados)
+inserirRota('/criarEmpresa',
+    function(dados, resposta) {
+        console.log(dados)
 
-//         if (!dados.titulo) {
-//             return resposta({ erro: 'É necessário preencher o título da NF!' });
-//         }
+        if (!dados.cnpj) {
+            return resposta({ erro: 'É necessário preencher o CNPJ!' });
+        }
 
-//         if (!dados.valor) {
-//             return resposta({ erro: 'É necessário preencher o valor!' });
-//         }
+        if (!dados.razao) {
+            return resposta({ erro: 'É necessário preencher a Razão Social!' });
+        }
 
-//         if (!dados.data) {
-//             return resposta({ erro: 'É necessário preencher a data!' });
-//         }
+        if (!dados.telefone) {
+            return resposta({ erro: 'É necessário preencher o telefone!' });
+        }
 
-//         if (!dados.empresaid){
-//             return resposta({ erro: 'É necessário preencher o id!' });
-//         }
-
-//         database(`INSERT INTO TO GASTOS (TITULO, VALOR, DATA, EMPRESAID) VALUES ("${dados.titulo}", "${dados.valor}", "${dados.data}", "${dados.empresaid})`)
-//             .then(result => {
-//                 console.log('NF inserido com sucesso!');
-//                 resposta({ message: 'NF inserido com sucesso!' });
-//             }).catch(erro => {
-//                 console.log('Erro ao cadastrar!');
-//                 resposta({ message: 'Erro ao cadastrar!' });
-//             });
-//     });
+        database(`INSERT INTO TO EMPRESA (CNPJ, RAZAO_SOCIAL, TELEFONE) VALUES ("${dados.cnpj}", "${dados.razao}", "${dados.telefone}", "${dados.empresaid}" `)
+            .then(result => {
+                console.log('Empresa inserida com sucesso!');
+                resposta({ message: 'Empresa inserido com sucesso!' });
+            }).catch(erro => {
+                console.log('Erro ao cadastrar!');
+                resposta({ message: 'Erro ao cadastrar!' });
+            });
+    });
