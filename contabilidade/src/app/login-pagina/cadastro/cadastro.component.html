@@ -25,6 +25,9 @@
         <div class="centerDiv">
             <input [(ngModel)]="telefone" class="centralizacao" type="text" placeholder="Telefone" class="input">
         </div>
+        <div class="centralizacao">
+            <button class="botao" (click)="cadatrarEmpresa()">SALVAR E CONTINUAR</button>
+        </div>
         <div class="centerDiv">
             <span class="textos">RESPONSÁVEL</span>
         </div>
@@ -44,7 +47,7 @@
             <input [(ngModel)]="senha" class="centralizacao" type="password" placeholder="Senha" class="input">
         </div>
         <div class="centralizacao">
-            <button class="botao" (click)="cadatrarEmpresa()">CADASTRAR</button>
+            <button class="botao" (click)="cadastrarUsuario()">CADASTRAR</button>
         </div>
     </div>
 

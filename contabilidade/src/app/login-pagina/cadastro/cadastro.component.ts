@@ -21,7 +21,6 @@ export class CadastroComponent implements OnInit {
   nome = '';
   email = '';
   senha = '';
-  empresaid = localStorage.getItem('CNPJ');
 
   cadatrarEmpresa() {
     if (this.cnpj != '' && this.razao != '' && this.telefone != '') {
@@ -29,7 +28,6 @@ export class CadastroComponent implements OnInit {
         .then((resultado: any) => {
           alert('Cadastrado com sucesso.')
           console.log(this.cnpj, this.razao, this.telefone)
-          this.route.navigate(['/pagina-inicial/']);
         }).catch(erro => {
           console.log('Erro ao buscar usuarios', erro);
         })
@@ -40,10 +38,11 @@ export class CadastroComponent implements OnInit {
 
   cadastrarUsuario() {
     if (this.nome != '' && this.email != '' && this.senha != ''){
-      this.usuarioService.criarUsuario(this.nome, this.email, this.senha, this.empresaid)
+      this.usuarioService.criarUsuario(this.nome, this.email, this.senha, this.cnpj)
       .then((resultado: any) => {
         alert('Cadastrado com sucesso.')
-        console.log(this.nome, this.empresaid)
+        console.log(this.nome, this.cnpj)
+        this.route.navigate(['/pagina-inicial/']);
       }).catch(erro => {
         console.log('Erro ao criar usuário.', erro)
       })

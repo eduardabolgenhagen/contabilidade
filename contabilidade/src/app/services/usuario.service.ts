@@ -30,7 +30,7 @@ export class UsuarioService {
 
   login(email, senha) {
     return new Promise((resolvido, rejeitado) => {
-      fetch('api/login',
+      fetch('api/criarUsuario',
         {
           method: 'POST',
           headers: {
@@ -82,7 +82,7 @@ export class UsuarioService {
 
   criarUsuario(nome, email, senha, empresaid){
     return new Promise((resolvido, rejeitado) => {
-      fetch('api/criarUsuario',
+      fetch('api/usuarios',
       {
         method: 'POST',
         headers: {

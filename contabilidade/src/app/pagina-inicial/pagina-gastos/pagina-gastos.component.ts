@@ -19,7 +19,6 @@ export class PaginaGastosComponent implements OnInit {
   valor = '';
   data = '';
   empresaid = localStorage.getItem('CNPJ');
-  
 
   cadatrarGastos() {
     if (this.titulo != '' && this.valor != '' && this.data != '') {
