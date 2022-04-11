@@ -10,8 +10,8 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class CadastroComponent implements OnInit {
 
   constructor(private route: Router,
-    private usuarioService : UsuarioService) { }
-    
+    private usuarioService: UsuarioService) { }
+
   ngOnInit() {
   }
 
@@ -22,35 +22,28 @@ export class CadastroComponent implements OnInit {
   email = '';
   senha = '';
 
-  cadatrarEmpresa() {
-    if (this.cnpj != '' && this.razao != '' && this.telefone != '') {
-      this.usuarioService.criarEmpresa(this.cnpj, this.razao, this.telefone)
-        .then((resultado: any) => {
-          alert('Cadastrado com sucesso.')
-          console.log(this.cnpj, this.razao, this.telefone)
-        }).catch(erro => {
-          console.log('Erro ao buscar usuarios', erro);
-        })
-    } else{
-      alert('É necessário preencher todas as informações!')
-    }
-  }
-
   cadastrarUsuario() {
-    if (this.nome != '' && this.email != '' && this.senha != ''){
-      this.usuarioService.login(this.nome, this.email, this.senha, this.cnpj)
-      .then((resultado) => {
-        alert('User Cadastrado com sucesso.');
+    this.usuarioService.criarUsuario(this.nome, this.email, this.senha)
+      .then((resultado: any) => {
+        alert('User cadastrado com sucesso.');
         console.log(this.email, this.senha);
         this.route.navigate(['/']);
       }).catch(erro => {
         console.log('Erro ao criar usuário.', erro);
       })
-    } else {
-      alert('É necessário preencher todos os campos!');
-    }
   }
 
+  cadatrarEmpresa() {
+    this.usuarioService.criarEmpresa(this.cnpj, this.razao, this.telefone)
+      .then((resultado: any) => {
+        alert('Cadastrado com sucesso.')
+        console.log(this.cnpj, this.razao, this.telefone)
+      }).catch(erro => {
+        console.log('Erro ao buscar usuarios', erro);
+      })
+  }
 }
+
+
 
 

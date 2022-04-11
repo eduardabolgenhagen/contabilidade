@@ -25,5 +25,15 @@ inserirRota('/criarEmpresa',
             });
     });
 
-    
+    inserirRota('/buscarEmpresa',
+    function(dados, resposta) {
+        console.log(dados);
+
+        database('SELECT * FROM EMPRESA')
+            .then(result => {
+                resposta({ list: result });
+            }).catch(erro => {
+                resposta({ erro: 'Erro ao buscar empresas!' });
+            });
+    });
     

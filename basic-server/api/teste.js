@@ -1,4 +1,4 @@
-inserirRota('/teste_busca', (dados, resposta) => {
+inserirRota('/teste_busca_gastos', (dados, resposta) => {
     console.log(dados);
     database('SELECT * FROM GASTOS').then(result => {
         resposta({ resposta: result });
