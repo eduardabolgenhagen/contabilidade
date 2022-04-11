@@ -56,7 +56,7 @@ export class InicioComponent implements OnInit {
             this.route.navigate(['/pagina-inicial/'])
           }
         }
-        // console.log('RESULTADO', resultado.list[0])
+
       }).catch(erro => {
         console.log('ERRO AO BUSCAR USUÁRIOS', erro)
       })

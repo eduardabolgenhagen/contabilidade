@@ -39,7 +39,7 @@ inserirRota('/criarUsuario',
         if (!dados.senha) {
             return resposta({ erro: 'É necessário preencher o senha!' });
         }
-        database(`INSERT INTO USUARIOS (
+        database(`INSERT INTO LOGIN (
             NOME, EMAIL, SENHA, EMPRESAID) VALUES ("${dados.nome}", "${dados.email}", "${dados.senha}", "${dados.cnpj}")`)
             .then(result => {
                 console.log('Usuario inserido com sucesso!');

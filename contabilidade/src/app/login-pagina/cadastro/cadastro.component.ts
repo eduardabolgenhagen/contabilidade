@@ -38,10 +38,10 @@ export class CadastroComponent implements OnInit {
 
   cadastrarUsuario() {
     if (this.nome != '' && this.email != '' && this.senha != ''){
-      this.usuarioService.criarUsuario(this.nome, this.email, this.senha, this.cnpj)
+      this.usuarioService.login(this.nome, this.email, this.senha, this.cnpj)
       .then((resultado) => {
         alert('User Cadastrado com sucesso.');
-        console.log(this.nome, this.cnpj);
+        console.log(this.email, this.senha);
         this.route.navigate(['/']);
       }).catch(erro => {
         console.log('Erro ao criar usuário.', erro);
