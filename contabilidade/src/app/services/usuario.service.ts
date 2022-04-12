@@ -41,16 +41,19 @@ export class UsuarioService {
   //   })
   // }
 
-  criarGasto(titulo, valor, data) {
+  criarGasto(titulo, valor, data, idUser) {
     return new Promise((resolvido, rejeitado) => {
-      fetch('api/criarGasto',
+      fetch('/api/criarGasto',
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            titulo: titulo, valor: valor, data: data
+            titulo: titulo, 
+            valor: valor, 
+            data: data,
+            idUser: idUser
           })
         }).then(resultado => resultado.json())
         .then(resolvido)
@@ -60,7 +63,7 @@ export class UsuarioService {
 
   criarEmpresa(cnpj, razao, telefone) {
     return new Promise((resolvido, rejeitado) => {
-      fetch('api/criarEmpresa',
+      fetch('/api/criarEmpresa',
         {
           method: 'POST',
           headers: {

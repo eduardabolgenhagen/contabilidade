@@ -18,20 +18,16 @@ export class PaginaGastosComponent implements OnInit {
   titulo = '';
   valor = '';
   data = '';
-  empresaid = localStorage.getItem('CNPJ');
+  idUser = localStorage.getItem("idUser");
 
   cadatrarGastos() {
-    if (this.titulo != '' && this.valor != '' && this.data != '') {
-      this.usuarioService.criarGasto(this.titulo, this.valor, this.data)
+      this.usuarioService.criarGasto(this.titulo, this.valor, this.data, this.idUser)
         .then((resultado: any) => {
           alert('Cadastrado com sucesso.')
-          console.log(this.titulo, this.valor, this.data)
+          console.log(this.titulo, this.valor, this.data, this.idUser)
           this.route.navigate(['/pagina-inicial/']);
         }).catch(erro => {
           console.log('Erro ao buscar usuarios', erro);
         })
-    } else{
-      alert('É necessário preencher todas as informações!')
-    }
+    } 
   }
-}

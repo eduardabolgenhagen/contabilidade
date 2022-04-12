@@ -33,10 +33,10 @@ export class CadastroComponent implements OnInit {
       })
   }
 
-  cadatrarEmpresa() {
+  cadastrarEmpresa() {
     this.usuarioService.criarEmpresa(this.cnpj, this.razao, this.telefone)
       .then((resultado: any) => {
-        alert('Cadastrado com sucesso.')
+        alert('Empresa cadastrada com sucesso.')
         console.log(this.cnpj, this.razao, this.telefone)
       }).catch(erro => {
         console.log('Erro ao buscar usuarios', erro);
