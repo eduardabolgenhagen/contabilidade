@@ -20,8 +20,8 @@ export class PaginaEscolhasComponent implements OnInit {
 
   id = localStorage.getItem('ID');
   extrato() {
-    this.usuarioService.apresentarExtrato(this.id);
-    this.route.navigate(['/extrato/'])
+    // this.usuarioService.apresentarExtrato(this.id);
+    this.route.navigate(['/extrato/']);
   }
 
   logout() {
