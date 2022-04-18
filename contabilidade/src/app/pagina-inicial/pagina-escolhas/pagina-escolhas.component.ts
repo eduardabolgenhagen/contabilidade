@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { a } from '@angular/core/src/render3';
+import { UsuarioService } from 'src/app/services/usuario.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,20 +9,22 @@ import { Router } from '@angular/router';
 })
 export class PaginaEscolhasComponent implements OnInit {
 
-  constructor( private route: Router) { };
+  constructor(private route: Router, private usuarioService: UsuarioService) { };
 
   ngOnInit() {
   }
 
-  gastos(){
+  gastos() {
     this.route.navigate(['/gastos/'])
   }
 
-  extrato(){
+  id = localStorage.getItem('ID');
+  extrato() {
+    this.usuarioService.apresentarExtrato(this.id);
     this.route.navigate(['/extrato/'])
   }
 
-  logout(){
+  logout() {
     this.route.navigate([''])
   }
 

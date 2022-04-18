@@ -36,3 +36,16 @@ inserirRota('/criarGastos',
                 resposta({ erro: 'Erro ao buscar gastos!' });
             });
     });
+
+    inserirRota('/apresentarExtrato',
+    function(dados, resposta){
+        console.log(dados);
+
+        database(`SELECT * FROM GASTOS WHERE IDUSER = "${dados.id}"`)
+        .then(result => {
+            resposta({ list: result });
+        }).catch(erro => {
+            resposta({ erro: 'Erro ao buscar gastos!' });
+        });
+    }
+    )

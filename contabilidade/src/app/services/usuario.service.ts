@@ -41,6 +41,24 @@ export class UsuarioService {
   //   })
   // }
 
+
+  apresentarExtrato(id){
+    return new Promise((resolvido, rejeitado) => {
+      fetch('/api/apresentarExtrato',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            id: id
+          })
+        }).then(resultado => resultado.json())
+        .then(resolvido)
+        .catch(rejeitado);
+    })
+  }
+
   criarGasto(titulo, valor, data, ID) {
     return new Promise((resolvido, rejeitado) => {
       fetch('/api/criarGastos',

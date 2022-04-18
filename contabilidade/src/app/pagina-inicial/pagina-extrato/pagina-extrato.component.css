@@ -32,3 +32,8 @@ main{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: black;
 }
+
+.envolta{
+    border: solid 1px black;
+    margin: 3vh 10vw 0 10vw;
+}
