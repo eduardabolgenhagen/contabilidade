@@ -38,7 +38,7 @@ export class InicioComponent implements OnInit {
       .then((resultado: any) => {
         for(let i = 0; i < resultado.list.length; i++){
           if(resultado.list[i].EMAIL == this.email && resultado.list[i].SENHA == this.senha){
-            localStorage.setItem("idUser", resultado.id)
+            localStorage.setItem('ID', resultado.list[i].ID)
             this.route.navigate(['/pagina-inicial/'])
           }
         }

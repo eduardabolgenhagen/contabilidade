@@ -18,13 +18,13 @@ export class PaginaGastosComponent implements OnInit {
   titulo = '';
   valor = '';
   data = '';
-  idUser = localStorage.getItem("idUser");
+  ID = localStorage.getItem('ID');
 
-  cadatrarGastos() {
-      this.usuarioService.criarGasto(this.titulo, this.valor, this.data, this.idUser)
+  cadastrarGastos() {
+      this.usuarioService.criarGasto(this.titulo, this.valor, this.data, this.ID)
         .then((resultado: any) => {
           alert('Cadastrado com sucesso.')
-          console.log(this.titulo, this.valor, this.data, this.idUser)
+          console.log(this.titulo, this.valor, this.data, this.ID)
           this.route.navigate(['/pagina-inicial/']);
         }).catch(erro => {
           console.log('Erro ao buscar usuarios', erro);

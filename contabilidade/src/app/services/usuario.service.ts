@@ -41,9 +41,9 @@ export class UsuarioService {
   //   })
   // }
 
-  criarGasto(titulo, valor, data, idUser) {
+  criarGasto(titulo, valor, data, ID) {
     return new Promise((resolvido, rejeitado) => {
-      fetch('/api/criarGasto',
+      fetch('/api/criarGastos',
         {
           method: 'POST',
           headers: {
@@ -53,7 +53,7 @@ export class UsuarioService {
             titulo: titulo, 
             valor: valor, 
             data: data,
-            idUser: idUser
+            ID: ID
           })
         }).then(resultado => resultado.json())
         .then(resolvido)

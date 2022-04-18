@@ -1,4 +1,4 @@
-inserirRota('/criarGasto',
+inserirRota('/criarGastos',
     function(dados, resposta) {
         console.log(dados)
 
@@ -13,8 +13,9 @@ inserirRota('/criarGasto',
         if (!dados.data) {
             return resposta({ erro: 'É necessário preencher a data!' });
         }
-        database(`INSERT INTO GASTOS (TITULO, VALOR, DATA, IDUSER) VALUES ("${dados.titulo}", 
-        "${dados.valor}", "${dados.data}", "${dados.idUser}")`)
+
+        database(`INSERT INTO GASTOS (NF, VALOR, DATA, IDUSER) VALUES ("${dados.titulo}", 
+        "${dados.valor}", "${dados.data}", "${dados.ID}")`)
             .then(result => {
                 console.log('NF inserido com sucesso!');
                 resposta({ message: 'NF inserido com sucesso!' });
@@ -32,6 +33,6 @@ inserirRota('/criarGasto',
             .then(result => {
                 resposta({ list: result });
             }).catch(erro => {
-                resposta({ erro: 'Erro ao buscar empresas!' });
+                resposta({ erro: 'Erro ao buscar gastos!' });
             });
     });
