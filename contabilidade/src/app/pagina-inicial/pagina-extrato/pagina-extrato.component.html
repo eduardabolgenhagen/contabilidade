@@ -8,15 +8,17 @@
 
     <div>
         <div class="envolta" *ngFor="let gasto of listaGastos; let i= index">
-            <div class="text">
-                <h4>TÍTULO: {{gasto.NF}}</h4>
-                <span>-</span>
-                <h4>{{gasto.CODIGO}}</h4>
+            <div class="texts">
+                <h2>NF: {{gasto.NF}} </h2>
+                <h2> - </h2>
+                <h2> {{gasto.CODIGO}}</h2>
             </div>
-            <div>
-                <h4>DATA: {{gasto.DATA}}</h4>
+            <div class="texts">
+                <h5>DATA {{gasto.DATA}}</h5>
             </div>
-            <h4>VALOR: {{gasto.VALOR}}</h4>
+            <div class="valor">
+                <h3>R$ {{gasto.VALOR}}</h3>
+            </div>
         </div>
     </div>
 
