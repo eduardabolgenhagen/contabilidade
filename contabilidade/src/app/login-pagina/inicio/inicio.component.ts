@@ -21,6 +21,7 @@ export class InicioComponent implements OnInit {
     private socialAuthService: AuthService) { }
 
   ngOnInit() {
+    localStorage.clear()
     this.usuarioService.buscarUsuarios()
       .then(resultado => {
         console.log('RESULTADO', resultado)

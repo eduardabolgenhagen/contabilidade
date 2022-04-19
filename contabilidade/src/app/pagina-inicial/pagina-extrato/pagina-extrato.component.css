@@ -36,4 +36,5 @@ main{
 .envolta{
     border: solid 1px black;
     margin: 3vh 10vw 0 10vw;
+    display: flex;
 }

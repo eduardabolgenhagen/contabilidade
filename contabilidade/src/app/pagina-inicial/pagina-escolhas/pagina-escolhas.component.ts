@@ -18,9 +18,7 @@ export class PaginaEscolhasComponent implements OnInit {
     this.route.navigate(['/gastos/'])
   }
 
-  id = localStorage.getItem('ID');
   extrato() {
-    // this.usuarioService.apresentarExtrato(this.id);
     this.route.navigate(['/extrato/']);
   }
 

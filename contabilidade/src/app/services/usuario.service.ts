@@ -59,22 +59,22 @@ export class UsuarioService {
     })
   }
 
-  listarGastos() {
-    return new Promise((resolvido, rejeitado) => {
-      fetch('/api/apresentarExtrato',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
+  // listaGastos() {
+  //   return new Promise((resolvido, rejeitado) => {
+  //     fetch('/api/listaGastos',
+  //       {
+  //         method: 'POST',
+  //         headers: {
+  //           'Content-Type': 'application/json'
+  //         },
+  //         body: JSON.stringify({
           
-          })
-        }).then(resultado => resultado.json())
-        .then(resolvido)
-        .catch(rejeitado);
-    })
-  }
+  //         })
+  //       }).then(resultado => resultado.json())
+  //       .then(resolvido)
+  //       .catch(rejeitado);
+  //   })
+  // }
 
   criarGasto(titulo, valor, data, ID) {
     return new Promise((resolvido, rejeitado) => {

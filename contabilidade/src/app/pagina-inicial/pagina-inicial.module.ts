@@ -4,11 +4,13 @@ import { PaginaEscolhasComponent } from './pagina-escolhas/pagina-escolhas.compo
 import { PaginaGastosComponent } from './pagina-gastos/pagina-gastos.component';
 import { PaginaExtratoComponent } from './pagina-extrato/pagina-extrato.component';
 import { FormsModule } from '@angular/forms';
+import { CheckLogged } from '../CheckLogged';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [PaginaEscolhasComponent, PaginaGastosComponent, PaginaExtratoComponent, FormsModule]
+  declarations: [PaginaEscolhasComponent, PaginaGastosComponent, PaginaExtratoComponent, FormsModule],
+  providers: [CheckLogged]
 })
 export class PaginaInicialModule { }

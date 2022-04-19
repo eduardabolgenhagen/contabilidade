@@ -10,5 +10,6 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ],
   declarations: [InicioComponent, CadastroComponent]
+
 })
 export class LoginPaginaModule { }

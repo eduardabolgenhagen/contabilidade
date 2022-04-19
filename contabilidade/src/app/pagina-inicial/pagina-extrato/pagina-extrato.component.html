@@ -9,11 +9,14 @@
     <div>
         <div class="envolta" *ngFor="let gasto of listaGastos; let i= index">
             <div class="text">
-                <h2>NF: {{gasto.NF}}</h2>
-                <h5>DATA: {{gasto.DATA}}</h2>
-                <span>R$</span>
-                <h3>VALOR: {{gasto.VALOR}}</h2>
+                <h4>TÍTULO: {{gasto.NF}}</h4>
+                <span>-</span>
+                <h4>{{gasto.CODIGO}}</h4>
             </div>
+            <div>
+                <h4>DATA: {{gasto.DATA}}</h4>
+            </div>
+            <h4>VALOR: {{gasto.VALOR}}</h4>
         </div>
     </div>
 

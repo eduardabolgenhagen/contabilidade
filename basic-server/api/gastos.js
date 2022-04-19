@@ -43,9 +43,21 @@ inserirRota('/criarGastos',
 
         database(`SELECT * FROM GASTOS WHERE IDUSER = "${dados.id}"`)
         .then(result => {
-            resposta({ list: result });
+            resposta(result );
         }).catch(erro => {
             resposta({ erro: 'Erro ao buscar gastos!' });
         });
     }
+
+    // inserirRota('/listaGastos',
+    // function(dados, resposta){
+    //     console.log(dados);
+
+    //     database('SELECT * FROM GASTOS WHERE IDUSER = "${dados.id}"')
+    //     .then(result => {
+    //         resposta({ list: result });
+    //     }).catch(erro => {
+    //         resposta({ erro: 'Erro ao buscar gastos!' });
+    //     });
+    // }
     )

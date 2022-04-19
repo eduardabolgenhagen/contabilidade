@@ -15,6 +15,7 @@ import {
   AuthServiceConfig,
   GoogleLoginProvider
 } from "angular-6-social-login-v2"
+import { CheckLogged } from './CheckLogged';
 
 const routes: Routes = [
   {
@@ -25,7 +26,7 @@ const routes: Routes = [
   {
     path: 'pagina-inicial',
     component: PaginaEscolhasComponent,
-    canActivate: []
+    canActivate: [CheckLogged]
   },
   {
     path: 'cadastro',
@@ -35,12 +36,12 @@ const routes: Routes = [
   {
     path: 'gastos',
     component: PaginaGastosComponent,
-    canActivate: []
+    canActivate: [CheckLogged]
   },
   {
     path: 'extrato',
     component: PaginaExtratoComponent,
-    canActivate: []
+    canActivate: [CheckLogged]
   }
 ]
 
@@ -73,8 +74,9 @@ export function getAuthServiceConfigs() {
   providers: [
     {
       provide: AuthServiceConfig,
-      useFactory: getAuthServiceConfigs
-    }
+      useFactory: getAuthServiceConfigs,
+    },
+    CheckLogged
   ],
   bootstrap: [AppComponent]
 })

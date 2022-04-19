@@ -12,12 +12,13 @@ export class PaginaExtratoComponent implements OnInit {
   constructor(private route: Router, private usuarioService: UsuarioService) { }
 
   listaGastos = [];
+
   id = localStorage.getItem('ID');
-  
+
   ngOnInit() {
     this.usuarioService.apresentarExtrato(this.id)
       .then((resultado: any) => {
-        this.listaGastos = resultado.resposta;
+        this.listaGastos = resultado;
         console.log(this.listaGastos)
       })
   }
