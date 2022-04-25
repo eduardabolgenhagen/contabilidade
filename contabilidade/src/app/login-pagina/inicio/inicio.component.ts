@@ -63,6 +63,7 @@ export class InicioComponent implements OnInit {
       (userData) => {
         console.log(socialPlatform + " sign in data : ", userData);
         this.route.navigate(['/pagina-inicial']);
+        localStorage.setItem("google?", "1");
       }
     );
   }
